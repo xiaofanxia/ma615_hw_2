@@ -1,0 +1,41 @@
+---
+title: "MA615_Homework2"
+author: "xiaofan xia"
+date: "2019/9/18"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+```
+
+Extract from:
+Bradley Efron and Trevor Hastie
+Computer Age Statistical Inference: Algorithms, Evidence, and Data Science Cambridge University Press, 2016 https://web.stanford.edu/~hastie/CASI_files/PDF/casi.pdf
+
+Modern Bayesian practice uses various strategies to construct an appropriate “prior” g($\mu$)n the absence of prior experience, leaving many statisticians unconvinced by the resulting Bayesian inferences. Our second example illustrates the difficulty.
+
+
+Table 3.1 Scores from two tests taken by 22 students, mechanics and vectors.
+
+```{r}
+mechanics1 <- c(7,44,49,59,34,46,0,32,49,52,44)
+mechanics2 <- c(36,42,5,22,18,41,48,31,42,46,63)
+vectors1 <- c(51,69,41,70,42,40,40,45,57,64,61)
+vectors2 <- c(59,60,30,58,51,63,38,2,69,49,63)
+table1 <- data.frame("mechanics"=mechanics1,"vectors"=vectors1)
+rownames(table1) <- 1:11
+
+table2 <- data.frame("mechanics"=mechanics2,"vectors"=vectors2)
+rownames(table2) <- 12:22
+
+kable(t(table1))
+kable(t(table2))
+```
+
+Table 3.1 shows the scores on two tests, mechanics and vectors, achieved by n = 22 students. The sample correlation coefficient between the two scores is $\hat{\theta}$ =0.498,
+$$\hat{\theta}=\sum_{i=1}^{22}(m_{i}-\bar{m})(v_{i}-\bar{v})/[\sum_{i=1}^{22}(m_{i}-\bar{m})^2\sum_{i=1}^{22}(v_{i}-\bar{v})^2]^\frac{1}{2}$$
+with m and v short for mechanics and vectors, $\bar{m}$ and $\bar{v}$ their aver- ages.
